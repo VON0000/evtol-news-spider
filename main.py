@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 from typing import TypedDict, List
 
-from playwright.async_api import async_playwright, ProxySettings
+from playwright.async_api import async_playwright
 from tqdm import tqdm
 
 HEADLESS = True  # False: 打开浏览器（调试时建议使用） / True: 浏览器在后台运行
