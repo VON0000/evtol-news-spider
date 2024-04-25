@@ -1,6 +1,5 @@
 import asyncio
 import json
-import time
 from pathlib import Path
 
 from playwright.async_api import async_playwright
@@ -14,6 +13,9 @@ spider_js = Path("./spider.js").read_text(encoding="utf-8")
 
 # 在evtol详情页，解析evtol信息的js脚本，返回一个字典: Dict[str, str]
 parse_js = Path("./parse.js").read_text(encoding="utf-8")
+
+OUTPUT_DIR = Path("./outputs")
+OUTPUT_DIR.mkdir(exist_ok=True)
 
 
 async def main():
@@ -32,7 +34,7 @@ async def main():
 
             info_lst.append(info)
 
-        with open('output.json', 'w') as file:
+        with open(OUTPUT_DIR / 'output.json', 'w') as file:
             json.dump(info_lst, file, indent=4)
 
 
